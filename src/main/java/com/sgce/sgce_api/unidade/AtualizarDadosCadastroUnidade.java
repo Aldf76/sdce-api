@@ -1,4 +1,4 @@
-package unidade;
+package com.sgce.sgce_api.unidade;
 
 import jakarta.annotation.Nonnull;
 

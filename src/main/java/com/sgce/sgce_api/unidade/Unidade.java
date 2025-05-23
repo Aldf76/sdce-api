@@ -1,4 +1,4 @@
-package unidade;
+package com.sgce.sgce_api.unidade;
 
 import java.io.Serializable;
 
@@ -61,4 +61,15 @@ public class Unidade implements Serializable {
     public void excluir() {
         this.ativo = false;
     }
+// fins de teste ( Unidade.teste )
+    public Boolean getAtivo() {
+        return this.ativo;
+    }
+
+
+
+
+
+
+
 }
