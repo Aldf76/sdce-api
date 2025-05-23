@@ -2,7 +2,7 @@ package unidade;
 
 import jakarta.annotation.Nonnull;
 
-public record atualizarDadosCadastroUnidade(
+public record AtualizarDadosCadastroUnidade(
         @Nonnull
         Long id,
         String nome,

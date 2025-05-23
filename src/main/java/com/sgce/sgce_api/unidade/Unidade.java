@@ -2,7 +2,6 @@ package unidade;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -47,7 +46,7 @@ public class Unidade implements Serializable {
         this.tipo = dados.tipo();
     }
 
-    public void atualizarInformacoes(@Valid atualizarDadosCadastroUnidade dados) {
+    public void atualizarInformacoes(@Valid AtualizarDadosCadastroUnidade dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
         }
