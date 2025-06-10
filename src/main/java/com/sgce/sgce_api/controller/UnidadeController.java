@@ -10,14 +10,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
-import com.sgce.sgce_api.unidade.DadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.DadosDetalhamentoUnidade;
-import com.sgce.sgce_api.unidade.DadosUnidade;
-import com.sgce.sgce_api.unidade.AtualizarDadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.Unidade;
-import com.sgce.sgce_api.unidade.UnidadeRepository;
+
+import com.sgce.sgce_api.unidade.*;
+import com.sgce.sgce_api.unidade.UnidadeService;
 
 @CrossOrigin(origins = "http://localhost:5173")
 @RestController
@@ -25,41 +21,31 @@ import com.sgce.sgce_api.unidade.UnidadeRepository;
 public class UnidadeController {
 
     @Autowired
-    private final UnidadeRepository unidadeRepository;
-
-    public UnidadeController(UnidadeRepository unidadeRepository) {
-        this.unidadeRepository = unidadeRepository;
-    }
+    private UnidadeService unidadeService;
 
     @PostMapping
     public ResponseEntity<URI> cadastrar(@RequestBody @Valid DadosCadastroUnidade dados,
                                          UriComponentsBuilder uriBuilder) {
-        var unidade = new Unidade(dados);
-        unidadeRepository.save(unidade);
-        var uri = uriBuilder.path("/unidades/{id}").buildAndExpand(unidade.getId()).toUri();
+        URI uri = unidadeService.cadastrarUnidade(dados, uriBuilder);
         return ResponseEntity.created(uri).body(uri);
     }
 
     @GetMapping
     public ResponseEntity<Page<DadosUnidade>> listar(
             @PageableDefault(size = 10, sort = {"nome"}) Pageable paginacao) {
-        var page = unidadeRepository.findAllByAtivoTrue(paginacao).map(DadosUnidade::new);
-        return ResponseEntity.ok(page);
+        Page<DadosUnidade> unidades = unidadeService.listarUnidadesAtivas(paginacao);
+        return ResponseEntity.ok(unidades);
     }
 
     @PutMapping
-    @Transactional
     public ResponseEntity<DadosDetalhamentoUnidade> atualizar(@RequestBody @Valid AtualizarDadosCadastroUnidade dados) {
-        var unidade = unidadeRepository.getReferenceById(dados.id());
-        unidade.atualizarInformacoes(dados);
-        return ResponseEntity.ok(new DadosDetalhamentoUnidade(unidade));
+        DadosDetalhamentoUnidade detalhamento = unidadeService.atualizarUnidade(dados);
+        return ResponseEntity.ok(detalhamento);
     }
 
     @DeleteMapping("/{id}")
-    @Transactional
     public ResponseEntity<Void> excluir(@PathVariable Long id) {
-        var unidade = unidadeRepository.getReferenceById(id);
-        unidade.excluir();
+        unidadeService.excluirUnidade(id);
         return ResponseEntity.noContent().build();
     }
 }
