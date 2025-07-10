@@ -25,17 +25,20 @@ Sistema de Gestão de Consumo Energético (SGCE), desenvolvido com foco em boas 
 
 ## 📂 Estrutura do Projeto
 
+```
 sgce-api/
-├── controller/ # Camada de entrada (API REST)
-├── unidade/ # Domínio Unidade (model, DTOs, service, repo)
-├── consumo/ # Domínio Consumo (model, DTOs, service, repo)
-├── resources/
-│ └── application.properties
-├── test/ # Testes unitários e de integração
-├── pom.xml # Dependências e build
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── sgce/
+│   │   │           └── sgce_api/
+│   │   │               ├── unidade/
+│   │   │               └── consumo/
+│   └── resources/
+├── pom.xml
 └── README.md
-
----
+```
 
 ## 🧠 Fluxo de Funcionamento
 
