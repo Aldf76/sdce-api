@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-
+// Marca essa interface como um componente Spring (injeção automática em Services)
 @Repository
 public interface ConsumoRepository extends JpaRepository<Consumo, Long> {
 

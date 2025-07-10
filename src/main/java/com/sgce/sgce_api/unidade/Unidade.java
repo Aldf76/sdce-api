@@ -28,24 +28,25 @@ public class Unidade implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("unused")    // // Suprime alertas de campo não usado diretamente — comum em campos acessados via getter ou serialização
     private String nome;
 
     @SuppressWarnings("unused")
     private String cidade;
 
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) // Armazena o enum como texto no banco (ex: "ESCOLA", "HOSPITAL")
     private TipoUnidade tipo;
 
-    private boolean ativo;
+    private boolean ativo; // Flag de "soft delete" para marcar unidades como inativas sem removê-las do banco
 
+    // Construtor baseado em record DTO validado - evita uso de setters
     public Unidade(DadosCadastroUnidade dados) {
         this.ativo = true;
         this.nome = dados.nome();
         this.cidade = dados.cidade();
         this.tipo = dados.tipo();
     }
-
+    // Atualiza apenas os campos recebidos (evita sobrescrever nulos)
     public void atualizarInformacoes(@Valid AtualizarDadosCadastroUnidade dados) {
         if (dados.nome() != null) {
             this.nome = dados.nome();
@@ -57,11 +58,13 @@ public class Unidade implements Serializable {
             this.tipo = dados.tipo();
         }
     }
-
+    // "Exclusão lógica": marca a unidade como inativa sem removê-la do banco
     public void excluir() {
         this.ativo = false;
     }
-// fins de teste ( Unidade.teste )
+
+
+// fins de teste ( Unidade.teste ) -->  // Getter explícito necessário para frameworks e testes que verificam diretamente o valor do atributo 'ativo'
     public Boolean getAtivo() {
         return this.ativo;
     }
