@@ -1,9 +1,9 @@
 
 package com.sgce.sgce_api;
 
-import com.sgce.sgce_api.unidade.DadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.AtualizarDadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.TipoUnidade;
+import com.sgce.sgce_api.model.unidade.DadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.AtualizarDadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.TipoUnidade;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

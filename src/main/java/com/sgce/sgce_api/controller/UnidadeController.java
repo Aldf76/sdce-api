@@ -2,6 +2,10 @@ package com.sgce.sgce_api.controller;
 
 import java.net.URI;
 
+import com.sgce.sgce_api.model.unidade.AtualizarDadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.DadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.DadosDetalhamentoUnidade;
+import com.sgce.sgce_api.model.unidade.DadosUnidade;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -12,12 +16,12 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import jakarta.validation.Valid;
 
-import com.sgce.sgce_api.unidade.*;
-import com.sgce.sgce_api.unidade.UnidadeService;
+import com.sgce.sgce_api.service.UnidadeService;
 
-@CrossOrigin(origins = "http://localhost:5173") // Permite que o front-end local acesse essa API (evita bloqueio de CORS)
+
 @RestController // Define que esta classe responde a requisições HTTP e retorna JSON
 @RequestMapping("/unidades") // Define o caminho base para todos os endpoints relacionados a unidades
+@CrossOrigin(origins = "http://localhost:5173") // Permite chamadas do front-end local (evita erro de CORS durante o desenvolvimento)
 public class UnidadeController {
 
     @Autowired

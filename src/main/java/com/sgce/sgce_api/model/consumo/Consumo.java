@@ -1,7 +1,7 @@
-package com.sgce.sgce_api.consumo;
+package com.sgce.sgce_api.model.consumo;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.sgce.sgce_api.unidade.Unidade;
+import com.sgce.sgce_api.model.unidade.Unidade;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import lombok.*;

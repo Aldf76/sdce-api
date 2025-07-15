@@ -1,4 +1,4 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.model.unidade;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

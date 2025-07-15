@@ -1,4 +1,4 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.model.unidade;
 
 
 // DTO de saída responsável por representar os dados públicos de uma Unidade

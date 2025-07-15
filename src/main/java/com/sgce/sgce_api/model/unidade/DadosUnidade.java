@@ -1,4 +1,4 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.model.unidade;
 
 // Declaração da classe como um "record" do Java, uma forma concisa de criar classes imutáveis
 public record DadosUnidade(Long id, String nome, String cidade, TipoUnidade tipo) {

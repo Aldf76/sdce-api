@@ -1,4 +1,4 @@
-package com.sgce.sgce_api.consumo;
+package com.sgce.sgce_api.model.consumo;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

@@ -1,7 +1,11 @@
-package com.sgce.sgce_api.consumo;
+package com.sgce.sgce_api.service;
 
-import com.sgce.sgce_api.unidade.Unidade;
-import com.sgce.sgce_api.unidade.UnidadeRepository;
+import com.sgce.sgce_api.model.consumo.Consumo;
+import com.sgce.sgce_api.repository.ConsumoRepository;
+import com.sgce.sgce_api.model.consumo.DadosCadastroConsumo;
+import com.sgce.sgce_api.model.consumo.DadosDetalhamentoConsumo;
+import com.sgce.sgce_api.model.unidade.Unidade;
+import com.sgce.sgce_api.repository.UnidadeRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;

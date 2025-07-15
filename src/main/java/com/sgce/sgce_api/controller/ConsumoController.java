@@ -1,10 +1,12 @@
 package com.sgce.sgce_api.controller;
 
-import com.sgce.sgce_api.consumo.*;
 import jakarta.validation.Valid;
+import com.sgce.sgce_api.model.consumo.DadosCadastroConsumo;
+import com.sgce.sgce_api.model.consumo.DadosDetalhamentoConsumo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import com.sgce.sgce_api.service.ConsumoService;
 
 @RestController // Indica que essa classe recebe requisições HTTP e responde diretamente com JSON
 @RequestMapping("/consumos") // Define o caminho base da URL para esse controller

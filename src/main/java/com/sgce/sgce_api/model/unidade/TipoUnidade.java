@@ -1,4 +1,4 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.model.unidade;
 
 public enum TipoUnidade {
     RESIDENCIAL,

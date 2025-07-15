@@ -1,10 +1,10 @@
 
 package unidade;
 
-import com.sgce.sgce_api.unidade.AtualizarDadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.DadosCadastroUnidade;
-import com.sgce.sgce_api.unidade.TipoUnidade;
-import com.sgce.sgce_api.unidade.Unidade;
+import com.sgce.sgce_api.model.unidade.AtualizarDadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.DadosCadastroUnidade;
+import com.sgce.sgce_api.model.unidade.TipoUnidade;
+import com.sgce.sgce_api.model.unidade.Unidade;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

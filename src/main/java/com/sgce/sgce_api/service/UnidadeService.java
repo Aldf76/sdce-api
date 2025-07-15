@@ -1,5 +1,6 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.service;
 
+import com.sgce.sgce_api.model.unidade.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -8,6 +9,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import com.sgce.sgce_api.repository.UnidadeRepository;
 
 import java.net.URI;
 
