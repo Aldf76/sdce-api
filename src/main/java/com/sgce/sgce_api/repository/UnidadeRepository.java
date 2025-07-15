@@ -1,8 +1,10 @@
-package com.sgce.sgce_api.unidade;
+package com.sgce.sgce_api.repository;
 
+import com.sgce.sgce_api.model.unidade.Unidade;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 // Marca essa interface como um componente Spring (injeção automática em Services)
@@ -10,6 +12,11 @@ import org.springframework.stereotype.Repository;
 public interface UnidadeRepository extends JpaRepository<Unidade, Long> {
 
     Page<Unidade> findAllByAtivoTrue(Pageable paginacao);
+
+    @Query("SELECT COUNT(u) FROM Unidade u WHERE u.ativo = true") // puxa somente objetos registrados e ativos dentro do bd
+    //essa query não era realmente necessária pois o Spring Data JPA já entende e associa sozinho o nome do méotdo no campo da entidade, mas a título de aprendizado irei deixar
+    long countByAtivoTrue();
+
 
 }
 
